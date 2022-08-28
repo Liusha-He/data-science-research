@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "financial_data_science"
+version = "0.1.0"
+description = "Financial Data Science Plaground"
+authors = ["Liusha-He <liusha.8852@yahoo.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8, <3.10"
+scikit-learn = "^1.0.1"
+imblearn = "^0.0"
+xgboost = "^1.5.1"
+scipy = "^1.7.3"
+pandas = "<1.3.4"
+mlflow = "^1.22.0"
+hmmlearn = "^0.2.6"
+pymc3 = "^3.11.4"
+statsmodels = "^0.13.1"
+arch = "^5.1.0"
+yfinance = "^0.1.67"
+bt = "^0.2.9"
+plotly = "^5.8.0"
+forex-python = "^1.8"
+
+[tool.poetry.dev-dependencies]
+jupyter = "^1.0.0"
+ipython = "^7.30.1"
+pytest = "^6.2.5"
+flake8 = "^4.0.1"
+black = "<21.12b0"
+importanize = "^0.7.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
