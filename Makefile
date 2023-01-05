@@ -7,4 +7,7 @@ init:
 compile:
 	poetry update
 
-.PHONY: init compile
+start:
+	jupyter notebook
+
+.PHONY: init compile start
