@@ -16,9 +16,7 @@ pymc3 = "^3.11.4"
 statsmodels = "^0.13.1"
 arch = "^5.1.0"
 yfinance = "^0.1.67"
-bt = "^0.2.9"
-plotly = "^5.8.0"
-forex-python = "^1.8"
+matplotlib = "^3.6.2"
 
 [tool.poetry.dev-dependencies]
 jupyter = "^1.0.0"
