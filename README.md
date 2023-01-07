@@ -1,2 +1,2 @@
-# Financial Data Science Playground
+# Financial Data Science Exercises
 

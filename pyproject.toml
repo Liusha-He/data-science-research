@@ -2,7 +2,7 @@
 name = "financial_data_science"
 version = "0.1.0"
 description = "Financial Data Science Plaground"
-authors = ["Liusha-He <liusha.8852@yahoo.com>"]
+authors = ["Liusha-He"]
 
 [tool.poetry.dependencies]
 python = ">=3.8, <3.10"
@@ -11,7 +11,6 @@ imblearn = "^0.0"
 xgboost = "^1.5.1"
 scipy = "^1.7.3"
 pandas = "<1.3.4"
-mlflow = "^1.22.0"
 hmmlearn = "^0.2.6"
 pymc3 = "^3.11.4"
 statsmodels = "^0.13.1"
@@ -28,6 +27,9 @@ pytest = "^6.2.5"
 flake8 = "^4.0.1"
 black = "<21.12b0"
 importanize = "^0.7.0"
+
+[tool.poetry.group.dev.dependencies]
+testcontainers = "^3.7.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
