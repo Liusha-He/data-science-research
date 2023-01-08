@@ -20,12 +20,6 @@ def plot_sharpe_ratio(
     plt.show()
 
 
-def get_sharpe_ratio(
-    returns: Union[np.ndarray, float], risks: Union[np.ndarray, float]
-) -> Union[np.ndarray, float]:
-    return returns / risks
-
-
 def calculate_portfolio_return(
     weights: np.ndarray, returns: pd.DataFrame, n_of_trading_days: int
 ) -> float:
@@ -45,13 +39,19 @@ def calculate_portfolio_risk(
     return portfolio_risk
 
 
+def get_sharpe_ratio(
+    returns: Union[np.ndarray, float], risks: Union[np.ndarray, float]
+) -> Union[np.ndarray, float]:
+    return returns / risks
+
+
 def min_function_sharpe(
     weights: np.ndarray, returns: pd.DataFrame, n_of_trading_days: int
 ) -> float:
     portfolio_return = calculate_portfolio_return(weights, returns, n_of_trading_days)
     portfolio_risk = calculate_portfolio_risk(weights, returns, n_of_trading_days)
 
-    return get_sharpe_ratio(portfolio_return, portfolio_risk)
+    return -get_sharpe_ratio(portfolio_return, portfolio_risk)
 
 
 class SharpeRatioOptimizer:
@@ -76,13 +76,19 @@ class SharpeRatioOptimizer:
         )
 
         optimal_weights = self._optimize()["x"].round(3)
-        optimal_ratio = self.target_func(self.weights, self.returns, self.n_of_trading_days)
+        optimal_ratio = -self.target_func(self.weights, self.returns, self.n_of_trading_days)
 
         self.result = {
             "weights": {
                 k: v for k, v in zip(returns.columns, optimal_weights)
             },
-            "sharpe_ratio": optimal_ratio
+            "sharpe_ratio": round(optimal_ratio, 3),
+            "expected_return": round(calculate_portfolio_return(
+                optimal_weights, returns, n_of_trading_days
+            ), 3),
+            "expected_risk": round(calculate_portfolio_risk(
+                optimal_weights, returns, n_of_trading_days
+            ), 3)
         }
 
     def _optimize(self):
