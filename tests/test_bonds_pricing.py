@@ -1,4 +1,4 @@
-from quantitative_models.bonds import ZeroCouponBond, CouponBond
+from quantitative_models.bonds_pricing import ZeroCouponBond, CouponBond
 
 
 def test_zerocouponbond_by_example():
