@@ -10,4 +10,7 @@ compile:
 start:
 	jupyter notebook
 
-.PHONY: init compile start
+test:
+	pytest -svv tests
+
+.PHONY: init compile start test
